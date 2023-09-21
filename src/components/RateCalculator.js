@@ -15,12 +15,12 @@ const RateCalculator = () => {
     const [cards, setCards] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/v1/card/all')
+        fetch('https://api.mytrade.ng/api/v1/card/all')
         .then(res => res.json())
         .then(data => 
             setCards(data.data)
         ).catch(err => {console.log(err);})
-    })
+    }, [])
 
      // Mapping through Asset for select option
      const getAssetHandler = () => {

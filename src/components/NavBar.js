@@ -1,4 +1,13 @@
+import {Link} from 'react-router-dom'
+import {useState, useEffect} from 'react'
+
 const NavBar = () => {
+    const [isLogin, setIsLogin] = useState(false)
+    useEffect(() => {
+        let result = !!sessionStorage.getItem('token')
+        console.log(result);
+        setIsLogin(result)
+    }, [])
     return(
         <section class="navbar-area">
         <div class="container">
@@ -27,7 +36,8 @@ const NavBar = () => {
                         
                         <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="solid" href="#">Login</a></li>
+                                {!isLogin && <Link to={'https://app.mytrade.ng/auth'}> <li><a class="solid">Login</a></li> </Link>}
+                                {isLogin && <Link to={'https://app.mytrade.ng/'}> <li><a class="solid">Dashboard</a></li> </Link>}
                             </ul>
                         </div>
                     </nav> 
