@@ -4,6 +4,7 @@ import RateCalculator from "../components/RateCalculator"
 import Testimonial from "../components/Testimonial"
 
 const Home = () => {
+    
 
     return(
         <>
